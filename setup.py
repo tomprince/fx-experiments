@@ -30,7 +30,7 @@ setup(
     author_email='tom.prince@twistedmatrix.com',
     url='https://github.com/tomprince/fx-experiments',
     packages=[
-        'fx',
+        'fx', 'fx.tests',
     ],
     include_package_data=True,
     install_requires=requirements,
