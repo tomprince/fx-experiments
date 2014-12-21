@@ -37,4 +37,10 @@ def perform_remote(dispatcher, intent, box):
         TypeDispatcher({Run: remote_runner}),
         dispatcher
     ])
-    perform(dispatcher, intent.effect.on(success=box.succeed, error=box.fail))
+
+    # TODO: fail
+    def close(_):
+        client.close()
+        return _
+    perform(dispatcher, intent.effect.on(success=close)
+            .on(success=box.succeed, error=box.fail))
